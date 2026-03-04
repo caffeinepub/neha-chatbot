@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fonts ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces-Italic-VariableFont.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces-VariableFont.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 1.25rem;
+
+    /* Warm cream background */
+    --background: 0.97 0.012 60;
+    --foreground: 0.22 0.04 35;
+
+    /* Card: soft warm white */
+    --card: 0.99 0.006 55;
+    --card-foreground: 0.22 0.04 35;
+
+    /* Popover */
+    --popover: 0.99 0.006 55;
+    --popover-foreground: 0.22 0.04 35;
+
+    /* Primary: deep rose for user bubbles */
+    --primary: 0.52 0.18 12;
+    --primary-foreground: 0.98 0.005 55;
+
+    /* Secondary: soft peach */
+    --secondary: 0.93 0.04 45;
+    --secondary-foreground: 0.32 0.07 25;
+
+    /* Muted: faded warm tone */
+    --muted: 0.94 0.015 55;
+    --muted-foreground: 0.52 0.04 40;
+
+    /* Accent: warm coral */
+    --accent: 0.88 0.07 30;
+    --accent-foreground: 0.22 0.04 35;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders & inputs */
+    --border: 0.88 0.025 50;
+    --input: 0.88 0.025 50;
+    --ring: 0.52 0.18 12;
+
+    /* Neha bubble: warm lavender-cream */
+    --neha-bubble: 0.95 0.018 320;
+    --neha-bubble-foreground: 0.22 0.04 35;
+
+    /* User bubble: rose */
+    --user-bubble: 0.52 0.18 12;
+    --user-bubble-foreground: 0.98 0.005 55;
+
+    /* Header gradient */
+    --header-from: 0.58 0.17 10;
+    --header-to: 0.65 0.16 350;
+
+    /* Online dot */
+    --online: 0.72 0.18 145;
+
+    /* Chart tokens (unused but required) */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    /* Sidebar */
+    --sidebar: 0.99 0.006 55;
+    --sidebar-foreground: 0.22 0.04 35;
+    --sidebar-primary: 0.52 0.18 12;
+    --sidebar-primary-foreground: 0.98 0.005 55;
+    --sidebar-accent: 0.93 0.04 45;
+    --sidebar-accent-foreground: 0.32 0.07 25;
+    --sidebar-border: 0.88 0.025 50;
+    --sidebar-ring: 0.52 0.18 12;
+  }
+
+  .dark {
+    --background: 0.145 0 0;
+    --foreground: 0.985 0 0;
+    --card: 0.205 0 0;
+    --card-foreground: 0.985 0 0;
+    --popover: 0.269 0 0;
+    --popover-foreground: 0.985 0 0;
+    --primary: 0.922 0 0;
+    --primary-foreground: 0.205 0 0;
+    --secondary: 0.269 0 0;
+    --secondary-foreground: 0.985 0 0;
+    --muted: 0.269 0 0;
+    --muted-foreground: 0.708 0 0;
+    --accent: 0.371 0 0;
+    --accent-foreground: 0.985 0 0;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.556 0 0;
+    --chart-1: 0.488 0.243 264.376;
+    --chart-2: 0.696 0.17 162.48;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.205 0 0;
+    --sidebar-foreground: 0.985 0 0;
+    --sidebar-primary: 0.488 0.243 264.376;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.269 0 0;
+    --sidebar-accent-foreground: 0.985 0 0;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.439 0 0;
+    --neha-bubble: 0.28 0.03 300;
+    --neha-bubble-foreground: 0.9 0.02 55;
+    --user-bubble: 0.58 0.18 12;
+    --user-bubble-foreground: 0.98 0.005 55;
+    --online: 0.72 0.18 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+/* ─── Typing Dots Animation ──────────────────────────────── */
+@keyframes bounce-dot {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translateY(-7px);
+    opacity: 1;
+  }
+}
+
+.typing-dot {
+  animation: bounce-dot 1.2s infinite ease-in-out;
+  background: oklch(var(--primary) / 0.5);
+}
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ─── Online Pulse ───────────────────────────────────────── */
+@keyframes pulse-online {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(var(--online) / 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 4px oklch(var(--online) / 0);
+    transform: scale(1.1);
+  }
+}
+
+.online-dot {
+  animation: pulse-online 2.4s ease-in-out infinite;
+}
+
+/* ─── Neha Bubble Gradient ───────────────────────────────── */
+.bubble-neha {
+  background: linear-gradient(
+    145deg,
+    oklch(0.97 0.022 330) 0%,
+    oklch(0.94 0.03 315) 100%
+  );
+  box-shadow:
+    0 2px 8px oklch(0.52 0.18 12 / 0.08),
+    inset 0 1px 0 oklch(1 0 0 / 0.6);
+}
+
+/* ─── User Bubble Gradient ───────────────────────────────── */
+.bubble-user {
+  background: linear-gradient(
+    145deg,
+    oklch(0.58 0.19 8) 0%,
+    oklch(0.48 0.17 350) 100%
+  );
+  box-shadow:
+    0 3px 12px oklch(0.52 0.18 12 / 0.25),
+    inset 0 1px 0 oklch(1 0 0 / 0.15);
+}
+
+/* ─── Send Button Hover ──────────────────────────────────── */
+.send-btn {
+  background: linear-gradient(135deg, oklch(0.52 0.18 12), oklch(0.62 0.16 350));
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.send-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 16px oklch(0.52 0.18 12 / 0.4);
+}
+.send-btn:active:not(:disabled) {
+  transform: scale(0.94);
+  filter: brightness(0.95);
+}
+.send-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ─── Input Warm Tint ────────────────────────────────────── */
+.chat-input {
+  background: linear-gradient(
+    to right,
+    oklch(0.97 0.018 50),
+    oklch(0.96 0.014 45)
+  );
+  border: 1.5px solid oklch(0.88 0.03 45);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.chat-input:focus {
+  outline: none;
+  border-color: oklch(0.62 0.16 350 / 0.6);
+  box-shadow: 0 0 0 3px oklch(0.52 0.18 12 / 0.12), 0 1px 4px oklch(0.52 0.18 12 / 0.08);
+}
+.chat-input::placeholder {
+  color: oklch(0.60 0.04 40 / 0.7);
+}
+.chat-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Input Bar Separator ────────────────────────────────── */
+.input-bar {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.94 0.018 50 / 0.6) 0%,
+    oklch(0.99 0.006 55) 100%
+  );
+  border-top: 1px solid oklch(0.90 0.025 50 / 0.5);
+  backdrop-filter: blur(8px);
+}
+
+/* ─── Scrollbar Styling ──────────────────────────────────── */
+.chat-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: oklch(var(--border));
+  border-radius: 4px;
+}
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--muted-foreground) / 0.4);
+}
+
+/* ─── Chat Background Pattern ────────────────────────────── */
+.chat-bg {
+  background-color: oklch(var(--background));
+  background-image:
+    radial-gradient(ellipse at 15% 15%, oklch(0.90 0.06 20 / 0.12) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 80%, oklch(0.88 0.05 340 / 0.10) 0%, transparent 45%),
+    radial-gradient(ellipse at 55% 5%,  oklch(0.93 0.04 45 / 0.14) 0%, transparent 40%),
+    radial-gradient(ellipse at 5% 90%,  oklch(0.92 0.03 60 / 0.08) 0%, transparent 35%);
+}
+
+/* ─── Chat header gradient ───────────────────────────────── */
+.chat-header {
+  background: linear-gradient(
+    135deg,
+    oklch(0.50 0.20 10) 0%,
+    oklch(0.56 0.19 355) 50%,
+    oklch(0.63 0.16 345) 100%
+  );
+}
+
+/* ─── Avatar glow ring ───────────────────────────────────── */
+.avatar-glow {
+  box-shadow:
+    0 0 0 2px oklch(1 0 0 / 0.7),
+    0 0 0 4px oklch(1 0 0 / 0.2),
+    0 4px 16px oklch(0.30 0.10 12 / 0.35);
+}
+
+/* ─── Chat window card ───────────────────────────────────── */
+.chat-card {
+  box-shadow:
+    0 8px 40px oklch(0.30 0.10 12 / 0.14),
+    0 2px 8px oklch(0.30 0.10 12 / 0.08),
+    0 0 0 1px oklch(0.88 0.03 50 / 0.4);
+}
